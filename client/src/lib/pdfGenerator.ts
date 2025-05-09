@@ -6,17 +6,27 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   const { userInfo, reactiveScore, strategicScore, interpretation, date, questions } = assessmentResult;
   const doc = new jsPDF();
   
+  // Create logo directly as text since SVG embedding is complicated
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
+  doc.setFontSize(24);
+  doc.text("DDL", 20, 20);
+  
+  // Add a line under the logo
+  doc.setDrawColor(190, 46, 214);
+  doc.setLineWidth(0.5);
+  doc.line(20, 22, 40, 22);
+  
   // Add a title
   doc.setFontSize(20);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
-  doc.text("Leadership Self-Check Results", 105, 20, { align: "center" });
+  doc.text("Leadership Self-Check Results", 105, 40, { align: "center" });
   
   // Add a subtitle
   doc.setFontSize(12);
   doc.setTextColor(100, 100, 100);
-  doc.text("Are You Leading Strategically or Reactively?", 105, 30, { align: "center" });
+  doc.text("Are You Leading Strategically or Reactively?", 105, 50, { align: "center" });
   
-  let yPosition = 50;
+  let yPosition = 70;
   
   // 1. NAME, EMAIL, ASSESSMENT DATE
   doc.setFontSize(16);
