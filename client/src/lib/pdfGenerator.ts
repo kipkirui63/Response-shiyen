@@ -53,9 +53,13 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   doc.text("Your Responses", 20, yPosition);
   yPosition += 10;
   
-  // Reactive questions
+  // Reactive questions with mauve background
+  // Add a mauve rectangle for the heading background
+  doc.setFillColor(190, 46, 214); // Mauve color #be2ed6
+  doc.rect(15, yPosition - 15, 180, 20, 'F');
+  
   doc.setFontSize(14);
-  doc.setTextColor(80, 80, 80);
+  doc.setTextColor(255, 255, 255); // White text
   doc.text("Reactive Tendencies", 20, yPosition);
   yPosition += 10;
   
@@ -100,8 +104,13 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
     yPosition = 20;
   }
   
+  // Strategic questions with mauve background
+  // Add a mauve rectangle for the heading background
+  doc.setFillColor(190, 46, 214); // Mauve color #be2ed6
+  doc.rect(15, yPosition - 15, 180, 20, 'F');
+  
   doc.setFontSize(14);
-  doc.setTextColor(80, 80, 80);
+  doc.setTextColor(255, 255, 255); // White text
   doc.text("Strategic/Creative Tendencies", 20, yPosition);
   yPosition += 10;
   
