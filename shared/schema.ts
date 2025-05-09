@@ -16,7 +16,7 @@ export const assessments = pgTable("assessments", {
   reactiveScore: integer("reactive_score").notNull(),
   strategicScore: integer("strategic_score").notNull(),
   interpretation: text("interpretation").notNull(),
-  date: timestamp("date").notNull().defaultNow(),
+  date: text("date").notNull(),
 });
 
 export const assessmentQuestions = pgTable("assessment_questions", {

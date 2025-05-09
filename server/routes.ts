@@ -61,8 +61,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         
         await fetch(scriptUrl, {
           method: 'POST',
-          // Use no-cors mode to prevent CORS issues
-          mode: 'no-cors',
+          // Headers only, no mode parameter for node-fetch
           headers: {
             'Content-Type': 'application/json',
           },
@@ -130,7 +129,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Get user info
-      const user = await storage.getUser(assessment.userId);
+      let user = null;
+      if (assessment.userId) {
+        user = await storage.getUser(assessment.userId);
+      }
       
       // Get question responses
       const questions = await storage.getAssessmentQuestions(assessmentId);

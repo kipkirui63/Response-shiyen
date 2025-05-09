@@ -16,7 +16,7 @@ export interface IStorage {
     reactiveScore: number;
     strategicScore: number;
     interpretation: string;
-    date: Date;
+    date: Date | string;
   }): Promise<Assessment>;
   getAssessment(id: number): Promise<Assessment | undefined>;
   getUserAssessments(userId: number): Promise<Assessment[]>;
@@ -85,7 +85,7 @@ export class MemStorage implements IStorage {
     reactiveScore: number;
     strategicScore: number;
     interpretation: string;
-    date: Date;
+    date: Date | string;
   }): Promise<Assessment> {
     const id = this.assessmentIdCounter++;
     const assessment: Assessment = {
@@ -94,7 +94,9 @@ export class MemStorage implements IStorage {
       reactiveScore: assessmentData.reactiveScore,
       strategicScore: assessmentData.strategicScore,
       interpretation: assessmentData.interpretation,
-      date: assessmentData.date.toISOString(),
+      date: typeof assessmentData.date === 'string' 
+        ? assessmentData.date 
+        : assessmentData.date.toISOString(),
     };
     this.assessments.set(id, assessment);
     return assessment;
