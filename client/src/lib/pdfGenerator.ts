@@ -1,30 +1,37 @@
 import { AssessmentData } from "./types";
 import { jsPDF } from "jspdf";
 import { format } from "date-fns";
+import logoImage from "@/assets/DDLL_Logo_Converted.png";
 
 export const generatePDF = (assessmentResult: AssessmentData) => {
   const { userInfo, reactiveScore, strategicScore, interpretation, date, questions } = assessmentResult;
   const doc = new jsPDF();
   
-  // Create logo directly as text since SVG embedding is complicated
-  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
-  doc.setFontSize(24);
-  doc.text("DDL", 20, 20);
+  // Instead of trying to use the image directly (which can be complex in PDF generation),
+  // Let's create text that represents the logo in the PDF
   
-  // Add a line under the logo
-  doc.setDrawColor(190, 46, 214);
-  doc.setLineWidth(0.5);
-  doc.line(20, 22, 40, 22);
+  // First word - Dream
+  doc.setFontSize(16);
+  doc.setTextColor(0, 0, 0);
+  doc.text("Dream.", 20, 20);
+  
+  // Second word - Dare (in mauve color)
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
+  doc.text("Dare.", 20, 30);
+  
+  // Third word - Lead
+  doc.setTextColor(0, 0, 0);
+  doc.text("Lead.", 20, 40);
   
   // Add a title
   doc.setFontSize(20);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
-  doc.text("Leadership Self-Check Results", 105, 40, { align: "center" });
+  doc.text("Leadership Self-Check Results", 105, 20, { align: "center" });
   
   // Add a subtitle
   doc.setFontSize(12);
   doc.setTextColor(100, 100, 100);
-  doc.text("Are You Leading Strategically or Reactively?", 105, 50, { align: "center" });
+  doc.text("Are You Leading Strategically or Reactively?", 105, 28, { align: "center" });
   
   let yPosition = 70;
   

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/DDLL_Logo_Converted.png";
 
 interface IntroSectionProps {
   onStart: () => void;
@@ -8,8 +8,8 @@ interface IntroSectionProps {
 export default function IntroSection({ onStart }: IntroSectionProps) {
   return (
     <div className="p-6">
-      <div className="flex justify-center mb-6">
-        <img src={logo} alt="DDL Logo" className="h-14" />
+      <div className="flex justify-start mb-6">
+        <img src={logo} alt="Dream. Dare. Lead. Logo" className="h-16" />
       </div>
       
       <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
