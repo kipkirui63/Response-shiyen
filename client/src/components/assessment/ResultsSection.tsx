@@ -41,94 +41,108 @@ export default function ResultsSection({
   };
 
   return (
-    <div className="p-6">
-    
-      <div className="bg-green-50 rounded-lg p-4 mb-6 border-l-4 border-green-400">
+    <div className="p-6 max-w-4xl mx-auto">
+      <div className="card-primary p-6 mb-8">
+        <h2 className="heading-lg text-primary mb-3">Your Assessment Results</h2>
         <p className="text-gray-700 font-medium">
-          Thank you for completing the assessment!
+          Thank you for completing the Leadership Self-Check assessment!
         </p>
-        <p className="text-gray-600 mt-1">Your results are ready below.</p>
+        <p className="text-gray-600 mt-2">
+          Your personalized results are ready below. Review your scores to understand your leadership style.
+        </p>
       </div>
 
-      <div className="mb-6">
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <h3 className="text-gray-700 font-semibold mb-1">Assessment Date</h3>
-          <p className="text-primary text-lg font-serif italic">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="card-elevated p-5 text-center">
+          <h3 className="result-label">Assessment Date</h3>
+          <p className="text-primary text-lg font-serif italic mt-2">
             {formatDate(date)}
           </p>
         </div>
-      </div>
-      
-      <div className="bg-green-50 p-4 rounded-lg border border-gray-200 mb-6">
-        <div className="flex justify-between items-center">
-          <div>
-            <h3 className="text-gray-700 font-semibold">Reactive Score</h3>
-            <div className="flex items-baseline">
-              <span className="text-primary text-2xl font-bold">{reactiveScore}</span>
-              <span className="text-gray-500 ml-1">/ 35</span>
+        
+        <div className="card-elevated p-5 text-center transform hover:scale-105 transition-transform duration-300">
+          <h3 className="result-label">Reactive Score</h3>
+          <div className="mt-2">
+            <div className="flex items-center justify-center">
+              <span className="result-value">{reactiveScore}</span>
+              <span className="text-gray-500 ml-1 text-lg">/ 35</span>
+            </div>
+            <div className="mt-1 text-xs text-gray-500">
+              {Math.round((reactiveScore / 35) * 100)}%
             </div>
           </div>
-          
-          <div className="text-right">
-            <h3 className="text-gray-700 font-semibold">Strategic Score</h3>
-            <div className="flex items-baseline justify-end">
-              <span className="text-primary text-2xl font-bold">{strategicScore}</span>
-              <span className="text-gray-500 ml-1">/ 35</span>
+        </div>
+        
+        <div className="card-elevated p-5 text-center transform hover:scale-105 transition-transform duration-300">
+          <h3 className="result-label">Strategic Score</h3>
+          <div className="mt-2">
+            <div className="flex items-center justify-center">
+              <span className="result-value">{strategicScore}</span>
+              <span className="text-gray-500 ml-1 text-lg">/ 35</span>
+            </div>
+            <div className="mt-1 text-xs text-gray-500">
+              {Math.round((strategicScore / 35) * 100)}%
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
-        <h3 className="text-gray-800 font-semibold text-xl mb-3">Interpret Your Scores</h3>
-        <ul className="space-y-3 pl-5 list-disc">
-          <li>
-            <span className="text-gray-700 font-medium">Mostly Reactive ({'>'}25 on Reactive, {'<'}20 on Strategic):</span>
-            <p className="text-gray-600">You may be leading from fear of disapproval or control.</p>
+      <div className="card-success p-6 mb-8">
+        <h3 className="section-heading">Interpret Your Scores</h3>
+        <ul className="space-y-5 pl-5 list-disc">
+          <li className="pb-3 border-b border-gray-100">
+            <span className="text-gray-800 font-bold">Mostly Reactive ({'>'}25 on Reactive, {'<'}20 on Strategic):</span>
+            <p className="text-gray-700 mt-1">You may be leading from fear of disapproval or control.</p>
+          </li>
+          <li className="pb-3 border-b border-gray-100">
+            <span className="text-gray-800 font-bold">Mixed (20–25 in both):</span>
+            <p className="text-gray-700 mt-1">You're in a transition zone—aware of new ways but held back by old patterns.</p>
           </li>
           <li>
-            <span className="text-gray-700 font-medium">Mixed (20–25 in both):</span>
-            <p className="text-gray-600">You're in a transition zone—aware of new ways but held back by old patterns.</p>
-          </li>
-          <li>
-            <span className="text-gray-700 font-medium">Mostly Strategic ({'>'}25 on Strategic, {'<'}20 on Reactive):</span>
-            <p className="text-gray-600">You're leading from vision, self-trust, and courage.</p>
+            <span className="text-gray-800 font-bold">Mostly Strategic ({'>'}25 on Strategic, {'<'}20 on Reactive):</span>
+            <p className="text-gray-700 mt-1">You're leading from vision, self-trust, and courage.</p>
           </li>
         </ul>
       </div>
 
-      <div className="bg-green-50 p-4 rounded-lg border border-gray-200 mb-6">
-        <h3 className="text-gray-800 font-medium mb-2">Interpretation</h3>
-        <div className="space-y-3">
-          <p className="text-primary-600 font-medium">{getInterpretationTitle()}</p>
-          <p className="text-gray-600">{getInterpretationDescription()}</p>
+      <div className="card-primary p-6 mb-8">
+        <h3 className="section-heading">Your Interpretation</h3>
+        <div className="bg-white p-4 rounded-lg shadow-sm mt-2">
+          <p className="text-primary font-bold text-xl mb-2">{getInterpretationTitle()}</p>
+          <p className="text-gray-700 leading-relaxed">{getInterpretationDescription()}</p>
         </div>
       </div>
 
-      <div className="space-y-4">
-        <div className="bg-secondary p-4 rounded-lg">
-          <p className="text-gray-700 font-medium mb-2">
-            Want to understand your patterns and grow into your most effective leadership?
+      <div className="space-y-6">
+        <div className="card-success p-6 text-center">
+          <h3 className="heading-md text-primary mb-3">
+            Want to grow into your most effective leadership?
+          </h3>
+          <p className="text-gray-700 mb-4">
+            Book a private leadership reflection session to understand your patterns and transform your approach.
           </p>
-          <Button className="w-full">
-            Book a private leadership reflection session with Shiyen Shu
+          <Button 
+            size="lg"
+            className="py-6 px-10 text-lg shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            Book a Session with Shiyen Shu
           </Button>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Button
             variant="outline"
-            className="flex-1 gap-2"
+            className="flex-1 gap-2 py-6"
             onClick={handleDownload}
           >
-            <Download className="h-4 w-4" /> Download My Results
+            <Download className="h-5 w-5" /> Download My Results
           </Button>
           <Button
             variant="secondary"
-            className="flex-1 gap-2"
+            className="flex-1 gap-2 py-6"
             onClick={onRestart}
           >
-            <RefreshCw className="h-4 w-4" /> Start Over
+            <RefreshCw className="h-5 w-5" /> Start Over
           </Button>
         </div>
       </div>

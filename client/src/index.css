@@ -15,14 +15,16 @@
   --input: 20 5.9% 90%;
   --primary: 285 70% 51%;  /* Mauve color: #be2ed6 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 285 70% 95%;
-  --secondary-foreground: 24 9.8% 10%;
+  --secondary: 142 66% 95%; /* Light green background */
+  --secondary-foreground: 142 66% 25%;
   --accent: 285 70% 91%;
   --accent-foreground: 24 9.8% 10%;
+  --success: 142 66% 35%; /* Darker green for accents */
+  --success-foreground: 0 0% 100%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
   --ring: 285 70% 51%;
-  --radius: 0.5rem;
+  --radius: 0.75rem; /* Slightly larger radius */
   --chart-1: 285 70% 51%;
   --chart-2: 285 70% 45%;
   --chart-3: 285 70% 40%;
@@ -113,5 +115,49 @@
 @layer utilities {
   .animate-fadeIn {
     animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Enhanced Typography */
+  .heading-xl {
+    @apply text-3xl font-bold tracking-tight text-gray-900;
+  }
+  
+  .heading-lg {
+    @apply text-2xl font-bold text-gray-800;
+  }
+  
+  .heading-md {
+    @apply text-xl font-semibold text-gray-800;
+  }
+  
+  .heading-sm {
+    @apply text-lg font-semibold text-gray-800;
+  }
+  
+  /* Custom Card Styles */
+  .card-elevated {
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+  
+  .card-primary {
+    @apply bg-white rounded-lg border-l-4 border-primary border-y border-r shadow-sm;
+  }
+  
+  .card-success {
+    @apply bg-secondary rounded-lg border-l-4 border-success border-y border-r shadow-sm;
+  }
+  
+  /* Section Headings */
+  .section-heading {
+    @apply text-xl font-bold mb-4 text-primary pb-2 border-b-2 border-primary/20 inline-block;
+  }
+  
+  /* Results Display */
+  .result-value {
+    @apply text-3xl font-bold text-primary;
+  }
+  
+  .result-label {
+    @apply text-sm uppercase tracking-wider text-gray-500 font-medium;
   }
 }
