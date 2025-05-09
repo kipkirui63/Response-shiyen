@@ -139,6 +139,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   // 3. YOUR SCORES
   if (yPosition > 250) {
     doc.addPage();
+    addFavicon(doc); // Add favicon to the new page
     yPosition = 20;
   }
   
