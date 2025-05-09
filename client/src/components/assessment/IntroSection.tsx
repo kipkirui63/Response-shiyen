@@ -8,8 +8,8 @@ interface IntroSectionProps {
 export default function IntroSection({ onStart }: IntroSectionProps) {
   return (
     <div className="p-6">
-      <div className="flex justify-start mb-6">
-        <img src={logo} alt="Dream. Dare. Lead. Logo" className="h-16" />
+      <div className="flex justify-center mb-6">
+        <img src={logo} alt="Dream. Dare. Lead. Logo" className="h-20" />
       </div>
       
       <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">

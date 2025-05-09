@@ -8,30 +8,30 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   const doc = new jsPDF();
   
   // Instead of trying to use the image directly (which can be complex in PDF generation),
-  // Let's create text that represents the logo in the PDF
+  // Let's create text that represents the logo in the PDF centered at the top
   
   // First word - Dream
-  doc.setFontSize(16);
+  doc.setFontSize(18);
   doc.setTextColor(0, 0, 0);
-  doc.text("Dream.", 20, 20);
+  doc.text("Dream.", 105, 20, { align: "center" });
   
   // Second word - Dare (in mauve color)
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
-  doc.text("Dare.", 20, 30);
+  doc.text("Dare.", 105, 27, { align: "center" });
   
   // Third word - Lead
   doc.setTextColor(0, 0, 0);
-  doc.text("Lead.", 20, 40);
+  doc.text("Lead.", 105, 34, { align: "center" });
   
   // Add a title
   doc.setFontSize(20);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
-  doc.text("Leadership Self-Check Results", 105, 20, { align: "center" });
+  doc.text("Leadership Self-Check Results", 105, 45, { align: "center" });
   
   // Add a subtitle
   doc.setFontSize(12);
   doc.setTextColor(100, 100, 100);
-  doc.text("Are You Leading Strategically or Reactively?", 105, 28, { align: "center" });
+  doc.text("Are You Leading Strategically or Reactively?", 105, 53, { align: "center" });
   
   let yPosition = 70;
   
