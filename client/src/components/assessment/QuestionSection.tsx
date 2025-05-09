@@ -32,24 +32,26 @@ export default function QuestionSection({
           <p className="text-gray-700 mb-3">
             {question.id}. {question.text}
           </p>
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-500">Strongly Disagree</span>
-            <div className="flex space-x-4">
+          <div className="flex space-x-8 items-center mt-2">
+            <div className="text-sm text-gray-500 w-32">Strongly Disagree</div>
+            <div className="flex-1 flex justify-between items-center">
               {[1, 2, 3, 4, 5].map((value) => (
-                <label key={value} className="custom-radio">
-                  <input
-                    type="radio"
-                    name={`q${question.id}`}
-                    value={value}
-                    checked={question.value === value}
-                    onChange={() => onAnswerChange(question.id, value)}
-                  />
-                  <span className="radio-checkmark"></span>
-                  <span className="sr-only">{value}</span>
-                </label>
+                <div key={value} className="text-center">
+                  <label className="custom-radio flex flex-col items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name={`q${question.id}`}
+                      value={value}
+                      checked={question.value === value}
+                      onChange={() => onAnswerChange(question.id, value)}
+                    />
+                    <span className="radio-checkmark"></span>
+                    <span className="text-xs text-gray-500 mt-1">{value}</span>
+                  </label>
+                </div>
               ))}
             </div>
-            <span className="text-sm text-gray-500">Strongly Agree</span>
+            <div className="text-sm text-gray-500 w-32 text-right">Strongly Agree</div>
           </div>
         </div>
       ))}

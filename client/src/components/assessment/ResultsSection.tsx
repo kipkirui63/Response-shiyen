@@ -50,14 +50,14 @@ export default function ResultsSection({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <h3 className="text-gray-700 font-medium mb-1">Your Strategic Score</h3>
+          <h3 className="text-gray-700 font-medium mb-1">Your Alignment Score</h3>
           <div className="flex items-baseline">
             <span className="text-primary text-3xl font-bold">
-              {strategicScore}
+              {reactiveScore + strategicScore}
             </span>
-            <span className="text-gray-500 ml-1">/ 35</span>
+            <span className="text-gray-500 ml-1">/ 70</span>
             <span className="ml-2 text-sm text-gray-500">
-              {Math.round((strategicScore / 35) * 100)}%
+              {Math.round(((reactiveScore + strategicScore) / 70) * 100)}%
             </span>
           </div>
         </div>
@@ -69,25 +69,41 @@ export default function ResultsSection({
           </p>
         </div>
       </div>
+      
+      <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+        <div className="flex justify-between items-center">
+          <div>
+            <h3 className="text-gray-700 font-medium">Reactive Score</h3>
+            <div className="flex items-baseline">
+              <span className="text-primary text-xl font-medium">{reactiveScore}</span>
+              <span className="text-gray-500 ml-1">/ 35</span>
+            </div>
+          </div>
+          
+          <div className="text-right">
+            <h3 className="text-gray-700 font-medium">Strategic Score</h3>
+            <div className="flex items-baseline justify-end">
+              <span className="text-primary text-xl font-medium">{strategicScore}</span>
+              <span className="text-gray-500 ml-1">/ 35</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
-        <h3 className="text-gray-800 font-medium mb-3">Scoring Guide</h3>
+        <h3 className="text-gray-800 font-medium mb-3">Interpret Your Scores</h3>
         <div className="space-y-2">
-          <div className="flex justify-between">
-            <span className="text-gray-700">40–50:</span>
-            <span className="text-gray-600">High-performing team in sync</span>
+          <div>
+            <p className="text-gray-700 font-medium">Mostly Reactive ({'>'}25 on Reactive, {'<'}20 on Strategic):</p>
+            <p className="text-gray-600">You may be leading from fear of disapproval or control.</p>
           </div>
-          <div className="flex justify-between">
-            <span className="text-gray-700">30–39:</span>
-            <span className="text-gray-600">Partially aligned</span>
+          <div>
+            <p className="text-gray-700 font-medium">Mixed (20–25 in both):</p>
+            <p className="text-gray-600">You're in a transition zone—aware of new ways but held back by old patterns.</p>
           </div>
-          <div className="flex justify-between">
-            <span className="text-gray-700">20–29:</span>
-            <span className="text-gray-600">Functional but fractured</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-gray-700">Under 20:</span>
-            <span className="text-gray-600">Consider team reset</span>
+          <div>
+            <p className="text-gray-700 font-medium">Mostly Strategic ({'>'}25 on Strategic, {'<'}20 on Reactive):</p>
+            <p className="text-gray-600">You're leading from vision, self-trust, and courage.</p>
           </div>
         </div>
       </div>
