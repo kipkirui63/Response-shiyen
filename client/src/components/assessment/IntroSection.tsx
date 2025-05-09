@@ -28,7 +28,7 @@ export default function IntroSection({ onStart }: IntroSectionProps) {
           Ready to discover your leadership style?
         </h3>
         <p className="text-gray-600 mb-4">
-          Complete this assessment in about 5 minutes to receive your personalized results.
+          Complete this assessment to receive your personalized results.
         </p>
         <Button 
           size="lg"
