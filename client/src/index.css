@@ -5,31 +5,31 @@
 :root {
   --background: 0 0% 100%;
   --foreground: 20 14.3% 4.1%;
-  --muted: 60 4.8% 95.9%;
-  --muted-foreground: 25 5.3% 44.7%;
+  --muted: 285 20% 95%;
+  --muted-foreground: 285 10% 40%;
   --popover: 0 0% 100%;
   --popover-foreground: 20 14.3% 4.1%;
   --card: 0 0% 100%;
   --card-foreground: 20 14.3% 4.1%;
-  --border: 20 5.9% 90%;
-  --input: 20 5.9% 90%;
+  --border: 285 20% 90%;
+  --input: 285 10% 95%;
   --primary: 285 70% 51%;  /* Mauve color: #be2ed6 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 142 66% 95%; /* Light green background */
-  --secondary-foreground: 142 66% 25%;
-  --accent: 285 70% 91%;
-  --accent-foreground: 24 9.8% 10%;
-  --success: 142 66% 35%; /* Darker green for accents */
+  --secondary: 285 30% 96%; /* Light mauve background */
+  --secondary-foreground: 285 60% 30%;
+  --accent: 285 70% 94%;
+  --accent-foreground: 285 60% 25%;
+  --success: 285 60% 45%; /* Darker mauve for accents */
   --success-foreground: 0 0% 100%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
   --ring: 285 70% 51%;
   --radius: 0.75rem; /* Slightly larger radius */
   --chart-1: 285 70% 51%;
-  --chart-2: 285 70% 45%;
-  --chart-3: 285 70% 40%;
-  --chart-4: 285 70% 35%;
-  --chart-5: 285 70% 30%;
+  --chart-2: 285 65% 45%;
+  --chart-3: 285 60% 40%;
+  --chart-4: 285 55% 35%;
+  --chart-5: 285 50% 30%;
 }
 
 .dark {
@@ -136,15 +136,15 @@
   
   /* Custom Card Styles */
   .card-elevated {
-    @apply bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300;
+    @apply bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-300;
   }
   
   .card-primary {
     @apply bg-white rounded-lg border-l-4 border-primary border-y border-r shadow-sm;
   }
   
-  .card-success {
-    @apply bg-secondary rounded-lg border-l-4 border-success border-y border-r shadow-sm;
+  .card-secondary {
+    @apply bg-secondary rounded-lg border-l-4 border-primary/40 border-y border-r shadow-sm;
   }
   
   /* Section Headings */

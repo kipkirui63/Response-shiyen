@@ -50,11 +50,11 @@ export default function QuestionSection({
       
       <div className="mb-10">
         <h2 className="section-heading">Reactive Tendencies</h2>
-        <div className="bg-secondary/50 p-5 rounded-lg border border-gray-200 shadow-sm">
+        <div className="bg-secondary p-5 rounded-lg border border-primary/20 shadow-sm">
           {reactiveQuestions.map((question, index) => (
             <div 
               key={question.id} 
-              className={`${index !== reactiveQuestions.length - 1 ? 'mb-8 pb-8 border-b border-gray-200' : ''}`}
+              className={`${index !== reactiveQuestions.length - 1 ? 'mb-8 pb-8 border-b border-primary/10' : ''}`}
             >
               <div className="flex items-center mb-3">
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">
@@ -96,11 +96,11 @@ export default function QuestionSection({
       
       <div className="mb-10">
         <h2 className="section-heading">Strategic/Creative Tendencies</h2>
-        <div className="bg-secondary/50 p-5 rounded-lg border border-gray-200 shadow-sm">
+        <div className="bg-secondary p-5 rounded-lg border border-primary/20 shadow-sm">
           {strategicQuestions.map((question, index) => (
             <div 
               key={question.id} 
-              className={`${index !== strategicQuestions.length - 1 ? 'mb-8 pb-8 border-b border-gray-200' : ''}`}
+              className={`${index !== strategicQuestions.length - 1 ? 'mb-8 pb-8 border-b border-primary/10' : ''}`}
             >
               <div className="flex items-center mb-3">
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">

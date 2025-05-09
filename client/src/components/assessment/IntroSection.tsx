@@ -10,7 +10,7 @@ export default function IntroSection({ onStart }: IntroSectionProps) {
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="heading-xl text-center mb-6 text-primary">Leadership Self-Check</h1>
       
-      <div className="card-success p-6 mb-8">
+      <div className="card-secondary p-6 mb-8">
         <h2 className="heading-md mb-3 text-primary">Welcome to Your Leadership Assessment</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
           Leadership at the top drives everything down. This quick yet powerful diagnostic helps 
