@@ -57,7 +57,7 @@ export default function ResultsSection({
         </div>
       </div>
       
-      <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+      <div className="bg-green-50 p-4 rounded-lg border border-gray-200 mb-6">
         <div className="flex justify-between items-center">
           <div>
             <h3 className="text-gray-700 font-medium">Reactive Score</h3>
@@ -95,7 +95,7 @@ export default function ResultsSection({
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+      <div className="bg-green-50 p-4 rounded-lg border border-gray-200 mb-6">
         <h3 className="text-gray-800 font-medium mb-2">Interpretation</h3>
         <div className="space-y-3">
           <p className="text-primary-600 font-medium">{getInterpretationTitle()}</p>

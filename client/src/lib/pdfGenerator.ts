@@ -106,6 +106,10 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
     yPosition = 20;
   }
   
+  // Add light green background for scores
+  doc.setFillColor(236, 253, 245); // Light green (green-50) equivalent
+  doc.rect(15, yPosition - 5, 180, 40, 'F');
+  
   doc.setFontSize(16);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
   doc.text("Your Scores", 20, yPosition);
@@ -119,6 +123,17 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   yPosition += 20;
   
   // 4. INTERPRETATION
+  
+  // Add light green background for interpretation
+  doc.setFillColor(236, 253, 245); // Light green (green-50) equivalent
+  
+  // Calculate the height needed for interpretation text
+  const interpretationDescription = interpretation.split(":")[1]?.trim() || interpretation;
+  const splitDescription = doc.splitTextToSize(interpretationDescription, 170);
+  const descriptionHeight = splitDescription.length * 7; // Approximating height
+  
+  doc.rect(15, yPosition - 5, 180, 45 + descriptionHeight, 'F');
+  
   doc.setFontSize(16);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
   doc.text("Interpretation", 20, yPosition);
@@ -139,9 +154,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   doc.text(interpretationTitle, 20, yPosition);
   yPosition += 10;
   
-  // Split interpretation text to avoid overflow
-  const interpretationDescription = interpretation.split(":")[1]?.trim() || interpretation;
-  const splitDescription = doc.splitTextToSize(interpretationDescription, 170);
+  // Add the interpretation text
   doc.text(splitDescription, 20, yPosition);
   
   // Add footer on last page
