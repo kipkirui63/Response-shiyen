@@ -12,9 +12,12 @@ export default function IntroSection({ onStart }: IntroSectionProps) {
         <img src={logo} alt="Dream. Dare. Lead. Logo" className="h-20" />
       </div>
       
-      <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
-        Leadership Self-Check Assessment
+      <h1 className="text-2xl font-bold text-center mb-2 text-gray-800">
+        Leadership Self-Check
       </h1>
+      <h2 className="text-xl text-center mb-6 text-gray-700">
+        Are You Leading Strategically or Reactively?
+      </h2>
       
       <div className="bg-pink-50 rounded-lg p-5 mb-6 border-l-4 border-primary">
         <p className="text-gray-700">

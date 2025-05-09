@@ -46,9 +46,12 @@ export default function ResultsSection({
         <img src={logo} alt="Dream. Dare. Lead. Logo" className="h-20" />
       </div>
       
-      <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
-        Leadership Self-Check Results
+      <h1 className="text-2xl font-bold text-center mb-2 text-gray-800">
+        Leadership Self-Check
       </h1>
+      <h2 className="text-xl text-center mb-6 text-gray-700">
+        Your Assessment Results
+      </h2>
     
       <div className="bg-green-50 rounded-lg p-4 mb-6 border-l-4 border-green-400">
         <p className="text-gray-700 font-medium">
