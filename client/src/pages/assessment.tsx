@@ -10,6 +10,7 @@ import UserInfoForm from "@/components/assessment/UserInfoForm";
 import ResultsSection from "@/components/assessment/ResultsSection";
 import ProgressBar from "@/components/assessment/ProgressBar";
 import { REACTIVE_QUESTIONS, STRATEGIC_QUESTIONS } from "@/lib/constants";
+import logoImage from "@/assets/DDLL_Logo_Converted.png";
 
 export default function Assessment() {
   const { toast } = useToast();
@@ -146,9 +147,14 @@ export default function Assessment() {
   return (
     <div className="container mx-auto py-8 px-4 max-w-3xl min-h-screen">
       <Card className="bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="text-center p-6 bg-white">
+        <div className="text-center pt-6 px-6 bg-white">
+          <img 
+            src={logoImage} 
+            alt="Dream. Dare. Lead. Logo" 
+            className="h-16 mx-auto mb-4" 
+          />
           <h1 className="text-2xl font-bold text-gray-800 mb-1">Leadership Self-Check</h1>
-          <p className="text-gray-600 font-medium">Are You Leading Strategically or Reactively?</p>
+          <p className="text-gray-600 font-medium mb-6">Are You Leading Strategically or Reactively?</p>
         </div>
 
         <ProgressBar progress={progress} />
