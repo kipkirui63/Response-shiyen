@@ -160,16 +160,31 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   doc.text("Your Scores", 20, yPosition);
   yPosition += 10;
   
+  // Reactive Score
   doc.setFontSize(14);
   doc.setTextColor(80, 80, 80);
-  doc.text(`Reactive Score: ${reactiveScore} / 35 (${Math.round((reactiveScore / 35) * 100)}%)`, 20, yPosition);
+  doc.setFont("helvetica", 'bold');
+  doc.text("Reactive Score:", 20, yPosition);
+  doc.setFont("helvetica", 'normal');
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
+  doc.text(`${reactiveScore} / 35 (${Math.round((reactiveScore / 35) * 100)}%)`, 80, yPosition);
+  
   yPosition += 10;
-  doc.text(`Strategic Score: ${strategicScore} / 35 (${Math.round((strategicScore / 35) * 100)}%)`, 20, yPosition);
+  
+  // Strategic Score
+  doc.setFontSize(14);
+  doc.setTextColor(80, 80, 80);
+  doc.setFont("helvetica", 'bold');
+  doc.text("Strategic Score:", 20, yPosition);
+  doc.setFont("helvetica", 'normal');
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
+  doc.text(`${strategicScore} / 35 (${Math.round((strategicScore / 35) * 100)}%)`, 80, yPosition);
   yPosition += 20;
   
   // Add scoring guide with bullet points
-  doc.setFontSize(14);
+  doc.setFontSize(16);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
+  doc.setFont("helvetica", 'bold');
   doc.text("Interpret Your Scores", 20, yPosition);
   yPosition += 10;
   

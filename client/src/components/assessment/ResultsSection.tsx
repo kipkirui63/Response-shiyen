@@ -52,8 +52,8 @@ export default function ResultsSection({
 
       <div className="mb-6">
         <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <h3 className="text-gray-700 font-medium mb-1">Assessment Date</h3>
-          <p className="text-primary text-lg font-medium">
+          <h3 className="text-gray-700 font-semibold mb-1">Assessment Date</h3>
+          <p className="text-primary text-lg font-serif italic">
             {formatDate(date)}
           </p>
         </div>
@@ -62,17 +62,17 @@ export default function ResultsSection({
       <div className="bg-green-50 p-4 rounded-lg border border-gray-200 mb-6">
         <div className="flex justify-between items-center">
           <div>
-            <h3 className="text-gray-700 font-medium">Reactive Score</h3>
+            <h3 className="text-gray-700 font-semibold">Reactive Score</h3>
             <div className="flex items-baseline">
-              <span className="text-primary text-xl font-medium">{reactiveScore}</span>
+              <span className="text-primary text-2xl font-bold">{reactiveScore}</span>
               <span className="text-gray-500 ml-1">/ 35</span>
             </div>
           </div>
           
           <div className="text-right">
-            <h3 className="text-gray-700 font-medium">Strategic Score</h3>
+            <h3 className="text-gray-700 font-semibold">Strategic Score</h3>
             <div className="flex items-baseline justify-end">
-              <span className="text-primary text-xl font-medium">{strategicScore}</span>
+              <span className="text-primary text-2xl font-bold">{strategicScore}</span>
               <span className="text-gray-500 ml-1">/ 35</span>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function ResultsSection({
       </div>
 
       <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
-        <h3 className="text-gray-800 font-medium mb-3">Interpret Your Scores</h3>
+        <h3 className="text-gray-800 font-semibold text-xl mb-3">Interpret Your Scores</h3>
         <ul className="space-y-3 pl-5 list-disc">
           <li>
             <span className="text-gray-700 font-medium">Mostly Reactive ({'>'}25 on Reactive, {'<'}20 on Strategic):</span>
