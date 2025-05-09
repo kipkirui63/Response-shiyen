@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.svg";
 
 interface IntroSectionProps {
   onStart: () => void;
@@ -7,6 +8,14 @@ interface IntroSectionProps {
 export default function IntroSection({ onStart }: IntroSectionProps) {
   return (
     <div className="p-6">
+      <div className="flex justify-center mb-6">
+        <img src={logo} alt="DDL Logo" className="h-14" />
+      </div>
+      
+      <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
+        Leadership Self-Check Assessment
+      </h1>
+      
       <div className="bg-pink-50 rounded-lg p-5 mb-6 border-l-4 border-primary">
         <p className="text-gray-700">
           Leadership at the top drives everything down. This quick yet powerful diagnostic helps 

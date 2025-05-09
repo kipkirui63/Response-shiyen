@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { Download, RefreshCw } from "lucide-react";
 import { AssessmentData } from "@/lib/types";
 import { generatePDF } from "@/lib/pdfGenerator";
+import logo from "@/assets/logo.svg";
 
 interface ResultsSectionProps {
   assessmentResult: AssessmentData;
@@ -41,6 +42,14 @@ export default function ResultsSection({
 
   return (
     <div className="p-6">
+      <div className="flex justify-center mb-6">
+        <img src={logo} alt="DDL Logo" className="h-14" />
+      </div>
+      
+      <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
+        Leadership Self-Check Results
+      </h1>
+    
       <div className="bg-green-50 rounded-lg p-4 mb-6 border-l-4 border-green-400">
         <p className="text-gray-700 font-medium">
           Thank you for completing the assessment!

@@ -1,0 +1,6 @@
+<svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Three stylized letters DDL -->
+  <text x="10" y="40" font-family="Arial, sans-serif" font-weight="bold" font-size="30" fill="#be2ed6">DDL</text>
+  <!-- Horizontal line under the text -->
+  <line x1="10" y1="45" x2="90" y2="45" stroke="#be2ed6" stroke-width="2"/>
+</svg>
