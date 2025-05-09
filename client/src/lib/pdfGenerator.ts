@@ -8,7 +8,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   
   // Add a title
   doc.setFontSize(20);
-  doc.setTextColor(124, 93, 173); // Light purple color
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
   doc.text("Leadership Self-Check Results", 105, 20, { align: "center" });
   
   // Add a subtitle
@@ -35,7 +35,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   
   // Add scores
   doc.setFontSize(16);
-  doc.setTextColor(124, 93, 173); // Light purple color
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
   doc.text("Your Scores", 20, 110);
   
   doc.setFontSize(14);
@@ -45,7 +45,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   
   // Add interpretation
   doc.setFontSize(16);
-  doc.setTextColor(124, 93, 173); // Light purple color
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
   doc.text("Interpretation", 20, 150);
   
   // Determine interpretation title
@@ -69,7 +69,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   
   // Add scoring guide
   doc.setFontSize(16);
-  doc.setTextColor(124, 93, 173); // Light purple color
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
   doc.text("Scoring Guide", 20, 190);
   
   doc.setFontSize(12);
