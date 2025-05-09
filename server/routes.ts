@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { assessmentDataSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import fetch from "node-fetch";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API Routes
@@ -44,6 +45,43 @@ export async function registerRoutes(app: Express): Promise<Server> {
             category: question.category,
           });
         }
+      }
+      
+      // Send data to Google Script
+      try {
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbwcM_25NSa3GX1ODQudVEIeboznp_Vw9Bi9ElAzOQNrw4tf4x8adiTnTMxHES3fksoM/exec';
+        
+        // Format question responses for the Google Sheet
+        const responses = validatedData.questions.map(q => ({
+          questionId: q.id,
+          text: q.text,
+          value: q.value,
+          category: q.category
+        }));
+        
+        await fetch(scriptUrl, {
+          method: 'POST',
+          // Use no-cors mode to prevent CORS issues
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            timestamp: validatedData.date,
+            name: validatedData.userInfo.name,
+            email: validatedData.userInfo.email,
+            organization: validatedData.userInfo.organization || '',
+            role: validatedData.userInfo.role || '',
+            reactive_score: validatedData.reactiveScore,
+            strategic_score: validatedData.strategicScore,
+            responses: JSON.stringify(responses)
+          }),
+        });
+        
+        console.log("Data sent to Google Script");
+      } catch (error) {
+        // Log the error but don't fail the request
+        console.error("Error sending data to Google Script:", error);
       }
       
       // Return the saved assessment with user info
