@@ -88,20 +88,20 @@ export default function ResultsSection({
 
       <div className="bg-white p-4 rounded-lg border border-gray-200 mb-6">
         <h3 className="text-gray-800 font-medium mb-3">Interpret Your Scores</h3>
-        <div className="space-y-2">
-          <div>
-            <p className="text-gray-700 font-medium">Mostly Reactive ({'>'}25 on Reactive, {'<'}20 on Strategic):</p>
+        <ul className="space-y-3 pl-5 list-disc">
+          <li>
+            <span className="text-gray-700 font-medium">Mostly Reactive ({'>'}25 on Reactive, {'<'}20 on Strategic):</span>
             <p className="text-gray-600">You may be leading from fear of disapproval or control.</p>
-          </div>
-          <div>
-            <p className="text-gray-700 font-medium">Mixed (20–25 in both):</p>
+          </li>
+          <li>
+            <span className="text-gray-700 font-medium">Mixed (20–25 in both):</span>
             <p className="text-gray-600">You're in a transition zone—aware of new ways but held back by old patterns.</p>
-          </div>
-          <div>
-            <p className="text-gray-700 font-medium">Mostly Strategic ({'>'}25 on Strategic, {'<'}20 on Reactive):</p>
+          </li>
+          <li>
+            <span className="text-gray-700 font-medium">Mostly Strategic ({'>'}25 on Strategic, {'<'}20 on Reactive):</span>
             <p className="text-gray-600">You're leading from vision, self-trust, and courage.</p>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
 
       <div className="bg-green-50 p-4 rounded-lg border border-gray-200 mb-6">

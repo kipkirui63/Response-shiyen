@@ -167,6 +167,44 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   doc.text(`Strategic Score: ${strategicScore} / 35 (${Math.round((strategicScore / 35) * 100)}%)`, 20, yPosition);
   yPosition += 20;
   
+  // Add scoring guide with bullet points
+  doc.setFontSize(14);
+  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
+  doc.text("Interpret Your Scores", 20, yPosition);
+  yPosition += 10;
+  
+  // Add bullet points
+  doc.setFontSize(12);
+  doc.setTextColor(80, 80, 80);
+  
+  // Bullet for Mostly Reactive
+  doc.text("•", 20, yPosition);
+  doc.setTextColor(80, 80, 80);
+  doc.setFontStyle('bold');
+  doc.text("Mostly Reactive (>25 on Reactive, <20 on Strategic):", 25, yPosition);
+  yPosition += 7;
+  doc.setFontStyle('normal');
+  doc.text("You may be leading from fear of disapproval or control.", 25, yPosition);
+  yPosition += 15;
+  
+  // Bullet for Mixed
+  doc.text("•", 20, yPosition);
+  doc.setFontStyle('bold');
+  doc.text("Mixed (20–25 in both):", 25, yPosition);
+  yPosition += 7;
+  doc.setFontStyle('normal');
+  doc.text("You're in a transition zone—aware of new ways but held back by old patterns.", 25, yPosition);
+  yPosition += 15;
+  
+  // Bullet for Mostly Strategic
+  doc.text("•", 20, yPosition);
+  doc.setFontStyle('bold');
+  doc.text("Mostly Strategic (>25 on Strategic, <20 on Reactive):", 25, yPosition);
+  yPosition += 7;
+  doc.setFontStyle('normal');
+  doc.text("You're leading from vision, self-trust, and courage.", 25, yPosition);
+  yPosition += 20;
+  
   // 4. INTERPRETATION
   
   // No colored background for interpretation, keeping it clean and white
