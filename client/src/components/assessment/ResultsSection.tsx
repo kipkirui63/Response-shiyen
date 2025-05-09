@@ -103,10 +103,10 @@ export default function ResultsSection({
       <div className="space-y-4">
         <div className="bg-secondary p-4 rounded-lg">
           <p className="text-gray-700 font-medium mb-2">
-            Want to explore your team's score together?
+            Want to understand your patterns and grow into your most effective leadership?
           </p>
           <Button className="w-full">
-            Book a complementary 30-minute Executive Alignment session
+            Book a private leadership reflection session with Shiyen Shu
           </Button>
         </div>
 
