@@ -136,9 +136,6 @@ export default function UserInfoForm({
         </div>
         
         <div className="mt-8 text-center max-w-md mx-auto">
-          <p className="text-gray-500 text-sm mb-4">
-            By submitting, you'll receive your leadership assessment results immediately.
-          </p>
           <Button
             size="lg"
             className="w-full py-6 text-lg shadow-md hover:shadow-lg transition-all duration-300"
