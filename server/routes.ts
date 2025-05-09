@@ -77,7 +77,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           }),
         });
         
-        console.log("Data sent to Google Script");
+        console.log("Data sent to Google Script:", scriptUrl);
       } catch (error) {
         // Log the error but don't fail the request
         console.error("Error sending data to Google Script:", error);
