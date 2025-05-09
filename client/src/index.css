@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 267 34% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 267 30% 95%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 267 25% 91%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 267 34% 60%;
+  --radius: 0.5rem;
+  --chart-1: 267 34% 60%;
+  --chart-2: 267 34% 50%;
+  --chart-3: 267 34% 40%;
+  --chart-4: 267 34% 30%;
+  --chart-5: 267 34% 20%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 267 34% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 267 34% 60%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-gray-50 text-foreground;
+  }
+}
+
+/* Custom radio styling */
+.custom-radio {
+  @apply inline-block relative cursor-pointer select-none;
+}
+
+.custom-radio input {
+  @apply absolute opacity-0 cursor-pointer;
+}
+
+.radio-checkmark {
+  @apply absolute top-0 left-0 h-5 w-5 bg-white border-2 border-primary/50 rounded-full;
+}
+
+.custom-radio:hover input ~ .radio-checkmark {
+  @apply bg-secondary;
+}
+
+.custom-radio input:checked ~ .radio-checkmark {
+  @apply bg-white border-primary;
+}
+
+.radio-checkmark:after {
+  content: "";
+  @apply absolute hidden;
+}
+
+.custom-radio input:checked ~ .radio-checkmark:after {
+  @apply block;
+}
+
+.custom-radio .radio-checkmark:after {
+  @apply top-1 left-1 w-2.5 h-2.5 rounded-full bg-primary;
+}
+
+.question-item {
+  @apply hidden;
+}
+
+.question-item.active {
+  @apply block animate-fadeIn;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
