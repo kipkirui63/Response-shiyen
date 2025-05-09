@@ -57,9 +57,6 @@ export default function UserInfoForm({
 
   return (
     <div className="p-6">
-      <div className="flex justify-center mb-6">
-        <img src={logoImage} alt="DDLL Logo" className="h-16" />
-      </div>
       
       <div className="bg-blue-50 rounded-lg p-4 mb-6">
         <p className="text-gray-700 font-medium">Almost done!</p>

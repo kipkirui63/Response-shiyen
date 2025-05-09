@@ -33,9 +33,6 @@ export default function QuestionSection({
 
   return (
     <div className="p-6">
-      <div className="flex justify-center mb-6">
-        <img src={logoImage} alt="DDLL Logo" className="h-16" />
-      </div>
       
       {showValidationError && (
         <div className="bg-red-50 text-red-700 p-3 rounded-md mb-4 border border-red-200">
