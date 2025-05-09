@@ -2,42 +2,23 @@ import { AssessmentData } from "./types";
 import { jsPDF } from "jspdf";
 import { format } from "date-fns";
 import logoImage from "@/assets/DDLL_Logo_Converted.png";
-import faviconImage from "@/assets/favicon/favicon.png";
 
 export const generatePDF = (assessmentResult: AssessmentData) => {
   const { userInfo, reactiveScore, strategicScore, interpretation, date, questions } = assessmentResult;
   const doc = new jsPDF();
   
-  // Add favicon - a small DDL logo in the top right corner of each page
-  const addFavicon = (doc: jsPDF) => {
-    // Add small logo as a "favicon" in top right corner
-    doc.setTextColor(0, 0, 0);
-    doc.setFontSize(8);
-    doc.text("Dream.", 190, 10, { align: "right" });
-    doc.setTextColor(190, 46, 214); // Mauve color
-    doc.text("Dare.", 190, 14, { align: "right" });
-    doc.setTextColor(0, 0, 0);
-    doc.text("Lead.", 190, 18, { align: "right" });
-  };
-  
-  // Add favicon to first page
-  addFavicon(doc);
-  
-  // Instead of trying to use the image directly (which can be complex in PDF generation),
-  // Let's create text that represents the logo in the PDF centered at the top
-  
-  // First word - Dream
-  doc.setFontSize(18);
-  doc.setTextColor(0, 0, 0);
-  doc.text("Dream.", 105, 20, { align: "center" });
-  
-  // Second word - Dare (in mauve color)
-  doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
-  doc.text("Dare.", 105, 27, { align: "center" });
-  
-  // Third word - Lead
-  doc.setTextColor(0, 0, 0);
-  doc.text("Lead.", 105, 34, { align: "center" });
+  // Add the real DDL logo image (centered at the top)
+  try {
+    // Convert logo image source to base64
+    const img = new Image();
+    img.src = logoImage;
+    
+    // Display the logo image at the top center
+    // We'll add using the data URL approach
+    doc.addImage(logoImage, 'PNG', 80, 15, 50, 20); // centered position, scaled size
+  } catch (e) {
+    console.error("Error adding logo to PDF:", e);
+  }
   
   // Add a title
   doc.setFontSize(20);
@@ -83,7 +64,12 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   reactiveQuestions.forEach((question, index) => {
     if (yPosition > 270) {
       doc.addPage();
-      addFavicon(doc); // Add favicon to the new page
+      // Add the logo to the new page
+      try {
+        doc.addImage(logoImage, 'PNG', 170, 10, 20, 8); // small logo in top right
+      } catch (e) {
+        console.error("Error adding logo to new page:", e);
+      }
       yPosition = 20;
     }
     
@@ -105,7 +91,12 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   // Strategic questions
   if (yPosition > 250) {
     doc.addPage();
-    addFavicon(doc); // Add favicon to the new page
+    // Add the logo to the new page
+    try {
+      doc.addImage(logoImage, 'PNG', 170, 10, 20, 8); // small logo in top right
+    } catch (e) {
+      console.error("Error adding logo to new page:", e);
+    }
     yPosition = 20;
   }
   
@@ -119,7 +110,12 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   strategicQuestions.forEach((question, index) => {
     if (yPosition > 270) {
       doc.addPage();
-      addFavicon(doc); // Add favicon to the new page
+      // Add the logo to the new page
+      try {
+        doc.addImage(logoImage, 'PNG', 170, 10, 20, 8); // small logo in top right
+      } catch (e) {
+        console.error("Error adding logo to new page:", e);
+      }
       yPosition = 20;
     }
     
@@ -139,7 +135,12 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   // 3. YOUR SCORES
   if (yPosition > 250) {
     doc.addPage();
-    addFavicon(doc); // Add favicon to the new page
+    // Add the logo to the new page
+    try {
+      doc.addImage(logoImage, 'PNG', 170, 10, 20, 8); // small logo in top right
+    } catch (e) {
+      console.error("Error adding logo to new page:", e);
+    }
     yPosition = 20;
   }
   
