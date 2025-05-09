@@ -7,11 +7,11 @@ interface IntroSectionProps {
 export default function IntroSection({ onStart }: IntroSectionProps) {
   return (
     <div className="p-6">
-      <div className="bg-secondary rounded-lg p-4 mb-6 border-l-4 border-primary">
+      <div className="bg-pink-50 rounded-lg p-5 mb-6 border-l-4 border-primary">
         <p className="text-gray-700">
-          This self-check is designed to help you reflect on whether your
-          leadership is driven more by internal purpose and vision
-          (Strategic/Creative) or by external validation and control (Reactive).
+          Leadership at the top drives everything down. This quick yet powerful diagnostic helps 
+          you surface subtle signs of misalignment across five domains—so you can lead your 
+          team with clarity, unity, and speed.
         </p>
         <p className="text-gray-700 mt-3">
           For each statement below, rate yourself from 1 (Strongly Disagree) to
