@@ -15,7 +15,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
     
     // Display the logo image at the top center
     // We'll add using the data URL approach
-    doc.addImage(logoImage, 'PNG', 80, 15, 50, 20); // centered position, scaled size
+    doc.addImage(logoImage, 'PNG', 70, 15, 70, 28); // centered position, scaled size
   } catch (e) {
     console.error("Error adding logo to PDF:", e);
   }

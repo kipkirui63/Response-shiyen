@@ -151,7 +151,7 @@ export default function Assessment() {
           <img 
             src={logoImage} 
             alt="Dream. Dare. Lead. Logo" 
-            className="h-16 mx-auto mb-4" 
+            className="h-24 mx-auto mb-5" 
           />
           <h1 className="text-2xl font-bold text-gray-800 mb-1">Leadership Self-Check</h1>
           <p className="text-gray-600 font-medium mb-6">Are You Leading Strategically or Reactively?</p>
