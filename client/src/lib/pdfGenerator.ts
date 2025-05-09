@@ -2,10 +2,26 @@ import { AssessmentData } from "./types";
 import { jsPDF } from "jspdf";
 import { format } from "date-fns";
 import logoImage from "@/assets/DDLL_Logo_Converted.png";
+import faviconImage from "@/assets/favicon/favicon.png";
 
 export const generatePDF = (assessmentResult: AssessmentData) => {
   const { userInfo, reactiveScore, strategicScore, interpretation, date, questions } = assessmentResult;
   const doc = new jsPDF();
+  
+  // Add favicon - a small DDL logo in the top right corner of each page
+  const addFavicon = (doc: jsPDF) => {
+    // Add small logo as a "favicon" in top right corner
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(8);
+    doc.text("Dream.", 190, 10, { align: "right" });
+    doc.setTextColor(190, 46, 214); // Mauve color
+    doc.text("Dare.", 190, 14, { align: "right" });
+    doc.setTextColor(0, 0, 0);
+    doc.text("Lead.", 190, 18, { align: "right" });
+  };
+  
+  // Add favicon to first page
+  addFavicon(doc);
   
   // Instead of trying to use the image directly (which can be complex in PDF generation),
   // Let's create text that represents the logo in the PDF centered at the top
@@ -67,6 +83,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   reactiveQuestions.forEach((question, index) => {
     if (yPosition > 270) {
       doc.addPage();
+      addFavicon(doc); // Add favicon to the new page
       yPosition = 20;
     }
     
@@ -88,6 +105,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   // Strategic questions
   if (yPosition > 250) {
     doc.addPage();
+    addFavicon(doc); // Add favicon to the new page
     yPosition = 20;
   }
   
@@ -101,6 +119,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   strategicQuestions.forEach((question, index) => {
     if (yPosition > 270) {
       doc.addPage();
+      addFavicon(doc); // Add favicon to the new page
       yPosition = 20;
     }
     
@@ -123,9 +142,7 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
     yPosition = 20;
   }
   
-  // Add light green background for scores
-  doc.setFillColor(236, 253, 245); // Light green (green-50) equivalent
-  doc.rect(15, yPosition - 5, 180, 40, 'F');
+  // No colored background for scores, keeping it clean and white
   
   doc.setFontSize(16);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
@@ -141,15 +158,11 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   
   // 4. INTERPRETATION
   
-  // Add light green background for interpretation
-  doc.setFillColor(236, 253, 245); // Light green (green-50) equivalent
+  // No colored background for interpretation, keeping it clean and white
   
   // Calculate the height needed for interpretation text
   const interpretationDescription = interpretation.split(":")[1]?.trim() || interpretation;
   const splitDescription = doc.splitTextToSize(interpretationDescription, 170);
-  const descriptionHeight = splitDescription.length * 7; // Approximating height
-  
-  doc.rect(15, yPosition - 5, 180, 45 + descriptionHeight, 'F');
   
   doc.setFontSize(16);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
