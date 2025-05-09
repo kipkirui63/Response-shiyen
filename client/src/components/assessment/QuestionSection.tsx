@@ -141,9 +141,6 @@ export default function QuestionSection({
       </div>
 
       <div className="card-elevated p-6 text-center">
-        <p className="text-gray-700 mb-4">
-          When you've completed all questions, submit your responses to see your results.
-        </p>
         <Button 
           size="lg" 
           className="px-10 py-6 text-lg shadow-md hover:shadow-lg transition-all duration-300" 
