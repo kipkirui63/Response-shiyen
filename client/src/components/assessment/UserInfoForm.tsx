@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { AlertCircle } from "lucide-react";
+import logoImage from "@/assets/DDLL_Logo_Converted.png";
 
 interface UserInfoFormProps {
   userInfo: UserInfo;
@@ -56,6 +57,10 @@ export default function UserInfoForm({
 
   return (
     <div className="p-6">
+      <div className="flex justify-center mb-6">
+        <img src={logoImage} alt="DDLL Logo" className="h-16" />
+      </div>
+      
       <div className="bg-blue-50 rounded-lg p-4 mb-6">
         <p className="text-gray-700 font-medium">Almost done!</p>
         <p className="text-gray-600 mt-1">

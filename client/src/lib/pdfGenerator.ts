@@ -180,28 +180,28 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   // Bullet for Mostly Reactive
   doc.text("•", 20, yPosition);
   doc.setTextColor(80, 80, 80);
-  doc.setFontStyle('bold');
+  doc.setFont("helvetica", 'bold');
   doc.text("Mostly Reactive (>25 on Reactive, <20 on Strategic):", 25, yPosition);
   yPosition += 7;
-  doc.setFontStyle('normal');
+  doc.setFont("helvetica", 'normal');
   doc.text("You may be leading from fear of disapproval or control.", 25, yPosition);
   yPosition += 15;
   
   // Bullet for Mixed
   doc.text("•", 20, yPosition);
-  doc.setFontStyle('bold');
+  doc.setFont("helvetica", 'bold');
   doc.text("Mixed (20–25 in both):", 25, yPosition);
   yPosition += 7;
-  doc.setFontStyle('normal');
+  doc.setFont("helvetica", 'normal');
   doc.text("You're in a transition zone—aware of new ways but held back by old patterns.", 25, yPosition);
   yPosition += 15;
   
   // Bullet for Mostly Strategic
   doc.text("•", 20, yPosition);
-  doc.setFontStyle('bold');
+  doc.setFont("helvetica", 'bold');
   doc.text("Mostly Strategic (>25 on Strategic, <20 on Reactive):", 25, yPosition);
   yPosition += 7;
-  doc.setFontStyle('normal');
+  doc.setFont("helvetica", 'normal');
   doc.text("You're leading from vision, self-trust, and courage.", 25, yPosition);
   yPosition += 20;
   
