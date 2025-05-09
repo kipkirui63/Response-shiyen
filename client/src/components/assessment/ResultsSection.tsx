@@ -48,20 +48,7 @@ export default function ResultsSection({
         <p className="text-gray-600 mt-1">Your results are ready below.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <h3 className="text-gray-700 font-medium mb-1">Your Alignment Score</h3>
-          <div className="flex items-baseline">
-            <span className="text-primary text-3xl font-bold">
-              {reactiveScore + strategicScore}
-            </span>
-            <span className="text-gray-500 ml-1">/ 70</span>
-            <span className="ml-2 text-sm text-gray-500">
-              {Math.round(((reactiveScore + strategicScore) / 70) * 100)}%
-            </span>
-          </div>
-        </div>
-
+      <div className="mb-6">
         <div className="bg-white p-4 rounded-lg border border-gray-200">
           <h3 className="text-gray-700 font-medium mb-1">Assessment Date</h3>
           <p className="text-primary text-lg font-medium">

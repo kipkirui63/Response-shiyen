@@ -67,17 +67,19 @@ export const generatePDF = (assessmentResult: AssessmentData) => {
   const splitDescription = doc.splitTextToSize(interpretationDescription, 170);
   doc.text(splitDescription, 20, 170);
   
-  // Add scoring guide
+  // Add interpretation guide
   doc.setFontSize(16);
   doc.setTextColor(190, 46, 214); // Mauve color #be2ed6
-  doc.text("Scoring Guide", 20, 190);
+  doc.text("Interpret Your Scores", 20, 190);
   
   doc.setFontSize(12);
   doc.setTextColor(80, 80, 80);
-  doc.text("40–50: High-performing team in sync", 20, 200);
-  doc.text("30–39: Partially aligned", 20, 210);
-  doc.text("20–29: Functional but fractured", 20, 220);
-  doc.text("Under 20: Consider team reset", 20, 230);
+  doc.text("Mostly Reactive (>25 on Reactive, <20 on Strategic):", 20, 200);
+  doc.text("You may be leading from fear of disapproval or control.", 25, 210);
+  doc.text("Mixed (20–25 in both):", 20, 220);
+  doc.text("You're in a transition zone—aware of new ways but held back by old patterns.", 25, 230);
+  doc.text("Mostly Strategic (>25 on Strategic, <20 on Reactive):", 20, 240);
+  doc.text("You're leading from vision, self-trust, and courage.", 25, 250);
   
   // Add footer
   doc.setFontSize(10);
