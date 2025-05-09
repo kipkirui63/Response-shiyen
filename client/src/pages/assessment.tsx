@@ -20,13 +20,13 @@ export default function Assessment() {
       id: index + 1,
       text,
       value: null,
-      category: "reactive",
+      category: "reactive" as "reactive",
     })),
     ...STRATEGIC_QUESTIONS.map((text, index) => ({
       id: index + 8,
       text,
       value: null,
-      category: "strategic",
+      category: "strategic" as "strategic",
     })),
   ]);
   const [userInfo, setUserInfo] = useState<UserInfo>({
@@ -61,7 +61,7 @@ export default function Assessment() {
 
   useEffect(() => {
     updateProgress();
-  }, [currentSection, currentQuestionIndex, questions]);
+  }, [currentSection, questions]);
 
   const updateProgress = () => {
     let progressValue = 0;
@@ -70,13 +70,12 @@ export default function Assessment() {
     if (currentSection === "introduction") {
       progressValue = 10;
     } else if (currentSection === "questions") {
-      // Base progress on question index + answered percentage
+      // Base progress on answered questions percentage
       const baseProgress = 10; // Starting progress
       const sectionProgress = 60; // Progress for question section
-      const indexProgress = (currentQuestionIndex / 14) * sectionProgress;
-      const answerBonus = (answeredCount / 14) * 5;
-
-      progressValue = baseProgress + indexProgress + answerBonus;
+      const progressPerQuestion = sectionProgress / questions.length;
+      
+      progressValue = baseProgress + (answeredCount * progressPerQuestion);
     } else if (currentSection === "userInfo") {
       progressValue = 80;
     } else if (currentSection === "results") {
@@ -96,19 +95,7 @@ export default function Assessment() {
     );
   };
 
-  const goToNextQuestion = () => {
-    if (currentQuestionIndex === 13) {
-      setCurrentSection("userInfo");
-    } else {
-      setCurrentQuestionIndex((prev) => prev + 1);
-    }
-  };
-
-  const goToPrevQuestion = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex((prev) => prev - 1);
-    }
-  };
+  // These functions are no longer needed since we're showing all questions at once
 
   const handleUserInfoChange = (info: UserInfo) => {
     setUserInfo(info);
@@ -152,7 +139,6 @@ export default function Assessment() {
     setQuestions((prev) =>
       prev.map((q) => ({ ...q, value: null }))
     );
-    setCurrentQuestionIndex(0);
     setCurrentSection("introduction");
     setAssessmentResult(null);
   };
@@ -173,11 +159,9 @@ export default function Assessment() {
 
         {currentSection === "questions" && (
           <QuestionSection
-            currentQuestionIndex={currentQuestionIndex}
             questions={questions}
             onAnswerChange={handleAnswerChange}
-            onNext={goToNextQuestion}
-            onPrevious={goToPrevQuestion}
+            onNext={() => setCurrentSection("userInfo")}
           />
         )}
 
